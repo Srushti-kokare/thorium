@@ -7,8 +7,21 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const midGlb=function (req,res,next){
+            let date= new Date()
+            let Ip=req.socket.remoteAddress
+    
+            console.log(date,Ip,req.originalUrl)
+            next()
+            
+        }
 
-mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {
+
+app.use(midGlb)
+
+
+
+mongoose.connect("mongodb+srv://srushti_kokare:srushti5198@cluster0.sybm5.mongodb.net/srushtidb?retryWrites=true&w=majority", {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))
