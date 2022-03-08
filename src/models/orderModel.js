@@ -10,7 +10,8 @@ const orderSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "Products"
     },
-    amount: Number,
+    amount: {type: Number,
+    default:100},
     date: String,
     isFreeAppUser: {
         type: Boolean,
